@@ -14,7 +14,7 @@ namespace Inventory_App_Demo
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new UserManager());
+            Application.Run(new CustomerManagement());
         }
     }
 }
