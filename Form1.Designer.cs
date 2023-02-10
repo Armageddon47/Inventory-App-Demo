@@ -39,7 +39,7 @@
             // passwordTXT
             // 
             this.passwordTXT.Location = new System.Drawing.Point(159, 260);
-            this.passwordTXT.MinimumSize = new System.Drawing.Size(0, 30);
+            this.passwordTXT.MinimumSize = new System.Drawing.Size(4, 30);
             this.passwordTXT.Multiline = true;
             this.passwordTXT.Name = "passwordTXT";
             this.passwordTXT.PasswordChar = '*';
@@ -50,7 +50,7 @@
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(159, 210);
-            this.textBox2.MinimumSize = new System.Drawing.Size(0, 30);
+            this.textBox2.MinimumSize = new System.Drawing.Size(4, 30);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(156, 33);
@@ -93,6 +93,7 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
