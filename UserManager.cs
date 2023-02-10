@@ -128,8 +128,7 @@ namespace Inventory_App_Demo
             }
             catch (Exception exception)
             {
-                Console.WriteLine(exception);
-                throw;
+                MessageBox.Show("No such user Exists. You drunk bruh?");
             }
             loader();
         }
