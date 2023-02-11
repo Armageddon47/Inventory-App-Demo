@@ -11,27 +11,24 @@ using System.Data.SqlClient;
 
 namespace Inventory_App_Demo
 {
-    public partial class CustomerManagement : Form
+    public partial class ManageItems : Form
     {
-        public CustomerManagement()
+        public ManageItems()
         {
             InitializeComponent();
         }
+
         private SqlConnection con =
             new SqlConnection(@"Data Source=V-PC;Initial Catalog=Inventory;Integrated Security=True");
 
 
-        private void button5_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
 
         private void loader()
         {
             try
             {
                 con.Open();
-                string myQuerry = "select * from CustomerTBL";
+                string myQuerry = "select * from ItemsTBL";
                 SqlDataAdapter da = new SqlDataAdapter(myQuerry, con);
                 SqlCommandBuilder builder = new SqlCommandBuilder(da);
                 var ds = new DataSet();
@@ -47,39 +44,49 @@ namespace Inventory_App_Demo
             }
         }
 
+        private void ManageItems_Load(object sender, EventArgs e)
+        {
+            loader();
+        }
+
+        private void button5_Click_1(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
+
             try
             {
                 con.Open();
-                SqlCommand com = new SqlCommand("insert into CustomerTBL values('" + CustomerIDTXT.Text + "', '" + CustomerNameTXT.Text + "'," +
-                                                "'" + CustomerPhoneTXT.Text + "' )", con);
+                SqlCommand com =
+                    new SqlCommand("insert into ItemsTBL values('" + ItemsIDTXT.Text + "', '" + ItemsNameTXT.Text + "')", con);
                 com.ExecuteNonQuery();
-                MessageBox.Show("Customer Successfully Added");
+                MessageBox.Show("Items Successfully Added");
                 con.Close();
             }
             catch (Exception)
             {
-                MessageBox.Show("ID Must Be UNIQUE!");
-               
+                Console.WriteLine();
+                throw;
             }
             loader();
-
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (CustomerIDTXT.Text == "")
+            if (ItemsIDTXT.Text == "")
             {
                 MessageBox.Show("Invalid selection");
             }
             else
             {
                 con.Open();
-                string myQuerry = "delete from CustomerTBL where CustomerID ='" + CustomerIDTXT.Text + "';";
+                string myQuerry = "delete from ItemsTBL where ItemID ='" + ItemsIDTXT.Text + "';";
                 SqlCommand com = new SqlCommand(myQuerry, con);
                 com.ExecuteNonQuery();
-                MessageBox.Show("Customer Removed");
+                MessageBox.Show("Item Removed");
                 con.Close();
                 loader();
 
@@ -88,17 +95,9 @@ namespace Inventory_App_Demo
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            int.Parse(CustomerIDTXT.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString());
-            CustomerNameTXT.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString().TrimEnd();
-            CustomerPhoneTXT.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString().TrimEnd();
-            /*
-             * this.CompareStrings(dr["user_name"].ToString(), UserName.Text)--> dr["user_name"].ToString().Trim()
-             */
-        }
-
-        private void CustomerManagement_Load(object sender, EventArgs e)
-        {
-            loader();
+            int.Parse(ItemsIDTXT.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString());
+            ItemsNameTXT.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+           
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -106,19 +105,18 @@ namespace Inventory_App_Demo
             try
             {
                 con.Open();
-                SqlCommand com = new SqlCommand("update  CustomerTBL set " +
-                                                "CustomerName = '" + CustomerNameTXT.Text + "', CustomerPhone ='" + CustomerPhoneTXT.Text + "'" +
-                                                " where CustomerID = '" + CustomerIDTXT.Text + "'", con);
+                SqlCommand com = new SqlCommand("update  ItemsTBL set " +
+                                                "ItemName = '" + ItemsNameTXT.Text + "'  where ItemID = '" + ItemsIDTXT.Text + "'", con);
                 com.ExecuteNonQuery();
-                MessageBox.Show("Customer Modified");
+                MessageBox.Show("Item Modified");
                 con.Close();
             }
-            catch (Exception exception)
+            catch 
             {
-                Console.WriteLine(exception);
-                throw;
+                MessageBox.Show("INVALID MOVE");
             }
             loader();
         }
     }
 }
+
