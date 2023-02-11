@@ -168,7 +168,7 @@ namespace Inventory_App_Demo
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            int.Parse(ProductIDTXT.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString());
+            ProductIDTXT.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
             ProductNameTXT.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
             QuantityTXT.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
             PriceTXT.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
@@ -186,6 +186,11 @@ namespace Inventory_App_Demo
         private void button7_Click(object sender, EventArgs e)
         {
             loader();
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

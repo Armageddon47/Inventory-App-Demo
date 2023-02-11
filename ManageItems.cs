@@ -95,7 +95,7 @@ namespace Inventory_App_Demo
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            int.Parse(ItemsIDTXT.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString());
+            ItemsIDTXT.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
             ItemsNameTXT.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
            
         }

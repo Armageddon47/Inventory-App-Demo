@@ -88,7 +88,7 @@ namespace Inventory_App_Demo
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            int.Parse(CustomerIDTXT.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString());
+            CustomerIDTXT.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
             CustomerNameTXT.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString().TrimEnd();
             CustomerPhoneTXT.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString().TrimEnd();
             /*
