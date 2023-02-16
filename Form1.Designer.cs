@@ -31,9 +31,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.passwordTXT = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.UserTXT = new System.Windows.Forms.TextBox();
             this.loginBtn = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.button5 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // passwordTXT
@@ -47,15 +48,15 @@
             this.passwordTXT.TabIndex = 0;
             this.passwordTXT.Text = "password";
             // 
-            // textBox2
+            // UserTXT
             // 
-            this.textBox2.Location = new System.Drawing.Point(159, 210);
-            this.textBox2.MinimumSize = new System.Drawing.Size(4, 30);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(156, 33);
-            this.textBox2.TabIndex = 1;
-            this.textBox2.Text = "Username";
+            this.UserTXT.Location = new System.Drawing.Point(159, 210);
+            this.UserTXT.MinimumSize = new System.Drawing.Size(4, 30);
+            this.UserTXT.Multiline = true;
+            this.UserTXT.Name = "UserTXT";
+            this.UserTXT.Size = new System.Drawing.Size(156, 33);
+            this.UserTXT.TabIndex = 1;
+            this.UserTXT.Text = "Username";
             // 
             // loginBtn
             // 
@@ -66,6 +67,7 @@
             this.loginBtn.TabIndex = 2;
             this.loginBtn.Text = "Login";
             this.loginBtn.UseVisualStyleBackColor = true;
+            this.loginBtn.Click += new System.EventHandler(this.loginBtn_Click);
             // 
             // checkBox1
             // 
@@ -78,6 +80,16 @@
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged_1);
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(488, 1);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(26, 23);
+            this.button5.TabIndex = 4;
+            this.button5.Text = "X";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -85,9 +97,10 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(514, 472);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.loginBtn);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.UserTXT);
             this.Controls.Add(this.passwordTXT);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
@@ -103,9 +116,10 @@
         #endregion
 
         private System.Windows.Forms.TextBox passwordTXT;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox UserTXT;
         private System.Windows.Forms.Button loginBtn;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Button button5;
     }
 }
 
